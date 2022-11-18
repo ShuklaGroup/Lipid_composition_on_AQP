@@ -8,11 +8,13 @@ import glob
 
 def GetWatsInFrame(filename, slice, slicenum):
 	'''
+	With MDAnalysis dynamic selection, identify all resids of waters occupying a pore slice at each frame in the trajectory
 	Args: 
-		a xtc file containing protein and water, type 'str'
-		a slice indication in the pore, type 'str'
-	Return: 
-		list of np.arrays, each corresponds to all wat resid identified in the slice in a frame
+		filename (str): a xtc filename containing protein and water
+		slice (str): a slice indication in the pore, compatible with MDAnalysis atom selection string
+		slicenum (int): current slice number in protein pore (out of 8)
+	Returns: 
+		list of np.arrays: each np.array corresponds to a frame, containing all wat resid identified in the pore slice at that frame
 	'''
 	if '2b5f' in filename:
 		pdbtraj = glob.glob("*2b5f*stripped.pdb")[0]
@@ -37,8 +39,11 @@ def GetFramesofWat(filename, allwat_allframes, slicenum):
 	From the list of np.arrays with all water resids occupying slice at each frame,
 	get another list of np.arrays, each array corresponds to a water resid, containing
 	the frames in which it occupies the slice
-	Args: 'str' filename (to save files), list of np.arrays
-	Return: list of np.arrays of frames per wat id, list of all wats
+	Args: 
+		filename (str): .xtc filename (to save output as pickle) 
+		allwat_allframes (list): list of np.array from GetWatsInFrame()
+	Returns: 
+		list of np.arrays: each np.array corresponds to a water resid, containing all frame it was found in the pore slice
 	'''
 	#get all water ids that have been in slice
 	allwatset = list(sorted(set(np.concatenate(allwat_allframes))))
@@ -67,8 +72,12 @@ def GetResTime(filename, frames_of_wat_arr, slicenum):
 	'''
 	From the list of np.arrays with each water and the frames in which it's in the slice,
 	calculate how many frames this water is in the slice continuously
-	Args: 'str' filename (to save files), list of np.arrays, list of ints
-	Return: list of np.arrays
+	Args:
+		filename (str): .xtc filename (to save output as pickle) 
+		frames_of_wat_arr (list): list of np.arrays from GetFramesofWat()
+		slicenum (int): current slice number
+	Returns: 
+		list of np.arrays: each array corresponds to a water resid, containing the counts of continous frames it was found in the pore slice
 	'''
 	all_wat_count_frame_num = []
 	for wat in range(len(frames_of_wat_arr)):
@@ -116,14 +125,14 @@ if __name__ == '__main__':
 	args = ps.parse_args()
 	filename = args.filename
 	slices = ["resid 47 or resid 206 or resid 211", 
-				"resid 32 or resid 137 or resid 187 or resid 202",
-				"resid 29 or resid 107 or resid 218",
-				"resid 54 or resid 141 or resid 183 or resid 199",
-				"resid 21 or resid 58 or resid 222",
-				"resid 17 or resid 96 or resid 175 or resid 226",
-				"resid 13 or resid 81 or resid 152 or resid 230",
-				"resid 10 or resid 90 or resid 233"]
-	for i in range(8):
+		"resid 32 or resid 137 or resid 187 or resid 202",
+		"resid 29 or resid 107 or resid 218",
+		"resid 54 or resid 141 or resid 183 or resid 199",
+		"resid 21 or resid 58 or resid 222",
+		"resid 17 or resid 96 or resid 175 or resid 226",
+		"resid 13 or resid 81 or resid 152 or resid 230",
+		"resid 10 or resid 90 or resid 233"]
+	for i in range(len(slices)):
 		start_time = time.time()
 		allwat_allframes = GetWatsInFrame(filename, slices[i], i)
 		frames_of_wat_arr = GetFramesofWat(filename, allwat_allframes, i)
