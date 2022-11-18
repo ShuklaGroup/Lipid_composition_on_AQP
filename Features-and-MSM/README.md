@@ -1,0 +1,1 @@
+Scripts for feature selections (computing residue-residue distances, RRCS calculations, oASIS calculations) and Markov State Models building from these features (grid searching, reweighting plots, implied timescale plots, free energy landscape, and bootstraping)
