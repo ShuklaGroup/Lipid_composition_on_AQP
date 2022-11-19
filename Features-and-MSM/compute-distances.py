@@ -46,4 +46,4 @@ if __name__ == '__main__':
     
     #loop through xtcs containing only proteins 
     for file in sorted(glob.glob('*MD*stripped_wat.xtc')):
-        ComputeContacts(file)
+        ComputeContacts(file, res)
