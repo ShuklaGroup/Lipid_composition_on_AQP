@@ -11,11 +11,11 @@ def GetFrameIndex(tica_trajs, lims):
 	Finding the frames in the selected tICA region
 	Args: 
 		tica_trajs (list): list of arrays containing outputs from tICA, 
-			each array corresponds to a trajectory with shape (frame number, tIC features)
-		lims (np.array): (4,) ndarray contraining maxs and mins of tIC1 and tIC2
+			each array corresponds to a trajectory with shape (number of frames, number of tIC features)
+		lims (np.array): shape (4,) array contraining maxs and mins of tIC1 and tIC2
 	Returns: 
 		frame_ind_all (list): list of arrays containing frame indices that reside in tic1 and tic2 range
-			each array corresponds to a trajectory 
+			each array corresponds to a trajectory with shape (number of frames, number of tIC features)
 			(there could be empty arrays for trajectories that has no frames in the selected region)
 	"""
 	xmin, xmax, ymin, ymax = lims
@@ -80,5 +80,5 @@ if __name__ == '__main__':
 		trajnames.append(name)
 	
 	#iterate through each state
-	for i in range(1,6):
+	for i in range(1,5):
 		GenerateCpptrajInput(state=i)
