@@ -1,6 +1,6 @@
 # Functional regulation of bilayer lipid composition on AQP
 
-Scripts for processing and analyzing trajectory files
+Scripts for processing and analyzing AMBER .xtc trajectory files
 
 ## Features-and-MSM
 Contains scripts and example files to perform distance feature selection from trajectory information, then use the final feature set to construct and validate Markov State Models.
