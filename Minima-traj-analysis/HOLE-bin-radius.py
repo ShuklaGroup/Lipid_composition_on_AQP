@@ -7,7 +7,7 @@ def GetHOLE(filename):
 	Args:
 		filename (str): name of pickle file containing the HOLE output of a trajectory
 	Returns:
-		(nd.array): binned radii for each frame in the directory, all of equal length
+		(np.array): shape (number of frames, number of bins) binned radii for each frame in the directory, all of equal length
 		saved as a pickle file
 	'''
 	#load file
