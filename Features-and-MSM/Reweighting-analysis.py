@@ -17,10 +17,10 @@ def GetRawAndReweightProb(cluster_trajs, weights_array, cluster_file):
         weights_array (list): list of np.array,
 			each array corresponds to a trajectory with shape (num of frames, )
 			and contains the weights each frame in the trajectory assigned by PyEMMA
-		cluster_file (str): .pkl filename of the cluster object from PyEMMA for saving outputs
+	cluster_file (str): .pkl filename of the cluster object from PyEMMA for saving outputs
     Returns:
-        log_raw_prob (np.array): shape (num of cluster,), log of the raw probability of each cluster in the cluster object
-        log_msm_prob (np.array): shape (num of cluster,), log of the raw probability of each cluster in the reweights
+        log_raw_prob (np.array): shape (num of cluster,), log of the probability of each cluster in the cluster object
+        log_msm_prob (np.array): shape (num of cluster,), log of the probability of each cluster in the reweights
     '''
 
     
