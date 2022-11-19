@@ -3,7 +3,7 @@ import numpy as np
 
 def GetHOLE(filename):
 	'''
-	Processes dictionary outputs from HOLE MDAnalysis
+	Processes dictionary outputs from HOLE MDAnalysis by binning the 'z-coord' and find the radius value in that bin
 	Args:
 		filename (str): name of pickle file containing the HOLE output of a trajectory
 	Returns:
