@@ -7,34 +7,35 @@ import pyemma
 ###Obtain cluster object and weights array corresponding to each frame, count the probability of each cluster, then plot. 
 ###This analysis ensures reweighting is not too diverged from original probabilities 
 
-def GetRawAndReweightProb(cluster_file, weights_file):
+def GetRawAndReweightProb(cluster_trajs, weights_array, cluster_file):
     '''
     Gets the log10 probability of each cluster, from the cluster object and reweighting list
     Args:
-        cluster_file (str): filename of the cluster object outputted from PyEMMA.
-        weights_file (str): filename of the reweighting obtained from the MSM built with PyEMMA
+        cluster_trajs (list): list of np.array, 
+			each array corresponds to a trajectory with shape (num of frames, )
+			and contains the assigned cluster of each frame in the trajectory
+        weights_array (list): list of np.array,
+			each array corresponds to a trajectory with shape (num of frames, )
+			and contains the weights each frame in the trajectory assigned by PyEMMA
+		cluster_file (str): .pkl filename of the cluster object from PyEMMA for saving outputs
     Returns:
-        log_raw_prob (np.array): log of the raw probability of each cluster in the cluster object, shape (num of cluster,)
-        log_msm_prob (np.array): log of the raw probability of each cluster in the reweights, shape (num of cluster,)
+        log_raw_prob (np.array): shape (num of cluster,), log of the raw probability of each cluster in the cluster object
+        log_msm_prob (np.array): shape (num of cluster,), log of the raw probability of each cluster in the reweights
     '''
-    cluster_obj = pickle.load(open(cluster_file, 'rb'))
-    cluster_trajs = cluster_obj.dtrajs
-    raw_cluster_array = cluster_trajs
+
     
-    weights_array = pickle.load(open(weights_file, 'rb'))
-    
-    raw_array = np.concatenate(raw_cluster_array)
-    weighted_array = np.concatenate(weights_array)
-    num_clusters = max(raw_array) + 1
+    raw_cluster_conc = np.concatenate(cluster_trajs)
+    weights_conc = np.concatenate(weights_array)
+    num_clusters = max(raw_cluster_conc) + 1
 
     raw_counts = np.zeros(num_clusters, dtype=float)
     msm_counts = np.zeros(num_clusters, dtype=float)
     for num in range(num_clusters):
-        ind = np.where(raw_array == num)[0]
+        ind = np.where(raw_cluster_conc == num)[0]
         raw_counts[num] += len(ind)
-        msm_counts[num] += np.sum(weighted_array[ind])
+        msm_counts[num] += np.sum(weights_conc[ind])
 
-    raw_prob = raw_counts/len(raw_array)
+    raw_prob = raw_counts/len(raw_cluster_conc)
     log_raw_prob = np.log10(raw_prob)
     log_msm_prob = np.log10(msm_counts)
 
@@ -45,9 +46,14 @@ def GetRawAndReweightProb(cluster_file, weights_file):
 
 if __name__ == '__main__':
     
-    #find cluster object and weights object in directory
+    #find cluster object and weights list in directory
     cluster_file = glob.glob("*cluster_obj.pkl")[0]
+    cluster_obj = pickle.load(open(cluster_file, 'rb'))
+    cluster_trajs = cluster_obj.dtrajs
+    	
     weights_file = glob.glob("*weights-final*pkl")[0]
+    weights_array = pickle.load(open(weights_file, 'rb'))
+
     system_name = cluster_file.split('-')[0]
     log_raw_prob, log_msm_prob = GetRawAndReweightProb(cluster_file, weights_file)
     plt.scatter(log_raw_prob, log_msm_prob)
