@@ -43,11 +43,12 @@ def GetRawAndReweightProb(cluster_file, weights_file):
     np.save(system_name+'_msm_probabilites.npy',log_msm_prob)
     return log_raw_prob, log_msm_prob
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     
     #find cluster object and weights object in directory
     cluster_file = glob.glob("*cluster_obj.pkl")[0]
     weights_file = glob.glob("*weights-final*pkl")[0]
+    system_name = cluster_file.split('-')[0]
     log_raw_prob, log_msm_prob = GetRawAndReweightProb(cluster_file, weights_file)
     plt.scatter(log_raw_prob, log_msm_prob)
     
