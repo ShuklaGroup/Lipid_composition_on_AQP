@@ -55,7 +55,7 @@ if __name__ == '__main__':
     weights_array = pickle.load(open(weights_file, 'rb'))
 
     system_name = cluster_file.split('-')[0]
-    log_raw_prob, log_msm_prob = GetRawAndReweightProb(cluster_file, weights_file)
+    log_raw_prob, log_msm_prob = GetRawAndReweightProb(cluster_trajs, weights_array, cluster_file)
     plt.scatter(log_raw_prob, log_msm_prob)
     
     #plot x=y line
