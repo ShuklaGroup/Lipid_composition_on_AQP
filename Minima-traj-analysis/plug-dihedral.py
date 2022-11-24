@@ -16,7 +16,7 @@ assert phi.shape == (1,4)
 topname = glob.glob('*_wat_lip.p*m*')[0]
 print("Topology file is:" + topname)
 
-#go through all stripped traj (containing protein and water) in directory, calculate distances for each
+#go through all stripped traj (containing protein and water) in directory, calculate dihedral for each
 for file in sorted(glob.glob('*MD*_wat_lip.xtc')):
     name = file.replace('.xtc','')
     print(name)
