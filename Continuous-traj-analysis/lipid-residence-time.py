@@ -11,8 +11,8 @@ def GetLipResTime(filename):
     Returns:
         residence_time (np.array) of shape (236, ) containing the lipid residence
             time at each residue
-        pbd file in the output directory "pylipid-cont" with the residence time
-            as a b-factor
+        pbd files of the protein in the output directory "pylipid-cont" with the residence time
+            as b-factor values
     '''
     trajfile_list = [filename] #sorted(glob.glob("*2b5f*state-4_wat.xtc"))
     if "2b5f" in filename:
