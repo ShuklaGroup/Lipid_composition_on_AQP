@@ -47,8 +47,7 @@ def GetLipResTime(filename):
 if __name__ == '__main__':
 
 	import argparse
-
-    #fetch user input argument as the .xtc filename
+    	#fetch user input argument as the .xtc filename
 	ps = argparse.ArgumentParser()
 	ps.add_argument('filename', type = str, help = '_wat.xtc file input with only protein and lipid')
 	args = ps.parse_args()
