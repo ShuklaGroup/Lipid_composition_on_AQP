@@ -96,7 +96,7 @@ def BootStrap(tica_file, cluster_file, msmlag, edges, nbins=175, nsamples=200):
 
 def GetErr(tica_file, max_prob, prob_arr):
 	'''
-	Calculate the free energy from the binned probability density and plot it
+	Calculate the free energy error from the binned probability density
 	
 	Args:
 		tica_file (str): .pkl filename of the tICA output from pyEMMA tICA object
@@ -122,7 +122,7 @@ def GetErr(tica_file, max_prob, prob_arr):
 
 	err_free_energy = R*T*np.abs(np.divide(err_prob_density,mean_prob_density) - np.std(max_prob)/np.mean(max_prob))
 
-	#save figure
+	#save file
 	system_name = tica_file.split('-')[0]
 	errfile = open('FINAL-'+system_name+'_tic-err.pkl','wb')
 	pickle.dump(err_free_energy, errfile)
