@@ -2,7 +2,7 @@ Scripts for feature selections (computing residue-residue distances, RRCS calcul
 
 - To select features:
   - [*compute-distances.py*](compute-distances.py) is used to obtain residue-residue distances between specified pairs of residues or all residues.
-  - Residue-residue contact scoring (RRCS) are calculated for all residue pairs, excluding the N-terminus residues 28-33
+  - Residue-residue contact scoring (RRCS) are calculated for all residue pairs, excluding the N-terminus residues 28-33 (0-5 in Python index) with [*RRCS.py*](RRCS.py)
   - oASIS from RRCS outputs
   
 - MSM scripts are used for the Markov State Model building workflow:
