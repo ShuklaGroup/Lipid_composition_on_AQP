@@ -1,4 +1,11 @@
 Scripts for feature selections (computing residue-residue distances, RRCS calculations, oASIS calculations), Markov State Models building from these features (grid searching, implied timescale plots), and validation of built MSM (reweighting plots and bootstrapping)
+
+- To select features:
+  - [*calculate-distance.py*](calculate-distance.py) is used to obtain residue-residue distances between any specified pairs of residues. For feature selection inputs, every residue-residue distances are calculated.
+  
+  - Residue-residue contact scoring (RRCS) are calculated for each distances
+  - oASIS from RRCS outputs
+  
 - MSM scripts are used for the Markov State Model building workflow:
   - To determine hyperparameters, [*MSM-grid-search.py*](MSM-grid-search.py) is used to perform a grid search. Outputs are .pkl tICA and clustering objects, an implied timescale plot from the resulting hyperparameter sets' MSM, and a dict containing VAMP-2 scores. Five parameter set with the highest VAMP-2 scores are examined. MSM lagtime is selected based on the implied timescale plot
   - With built MSMs, validations are done with [*MSM-bootstrap.py*](MSM-bootstrap.py) to estimate relative errors through bootstrapping, as well as [*MSM-reweighting-analysis.py*](MSM-reweighting-analysis.py) to evaluate the stationary distribution from the MSM and its deviation from the original distribution
