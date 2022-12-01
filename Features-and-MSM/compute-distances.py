@@ -44,6 +44,9 @@ if __name__ == '__main__':
     #as long as res is an np.array of shape (number of pair, 2)
     res = np.load("FINAL-RES-PAIRS-PLPG.npy")
     
+    #if all res-res contact needed, use:
+    #res = "all"
+    
     #loop through xtcs containing only proteins 
     for file in sorted(glob.glob('*MD*stripped_wat.xtc')):
         ComputeContacts(file, res)
