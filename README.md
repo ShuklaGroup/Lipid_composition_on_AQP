@@ -5,7 +5,7 @@ Scripts for processing and analyzing AMBER .xtc trajectory files
 ## Features-and-MSM
 Contains scripts to perform distance feature selection from trajectory information, then use the final feature set to construct and validate Markov State Models.
 
-## Minima-traj-analysis
+## Discrete-traj-analysis
 Contains scripts to select 1300-2000 frames from minima of each macrostate in the energy landscape and scripts to perform analyses on them (HOLE radius, pore plug diheral, hydrophobic mismatch).
 
 ## Continuous-traj-analysis
