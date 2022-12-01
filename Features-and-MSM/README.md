@@ -1,7 +1,7 @@
 Scripts for feature selections (computing residue-residue distances, RRCS calculations, oASIS calculations), Markov State Models building from these features (grid searching, implied timescale plots), and validation of built MSM (reweighting plots and bootstrapping)
 
 - To select features:
-  - [*calculate-distance.py*](calculate-distance.py) is used to obtain residue-residue distances between any specified pairs of residues. For feature selection inputs, every residue-residue distances are calculated.
+  - [*compute-distances.py*](compute-distances.py) is used to obtain residue-residue distances between any specified pairs of residues. For feature selection inputs, every residue-residue distances are calculated.
   
   - Residue-residue contact scoring (RRCS) are calculated for each distances
   - oASIS from RRCS outputs
