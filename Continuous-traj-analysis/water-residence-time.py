@@ -14,7 +14,8 @@ def GetWatsInFrame(filename, slice, slicenum):
 		slice (str): a slice indication in the pore, compatible with MDAnalysis atom selection string
 		slicenum (int): current slice number in protein pore (out of 8)
 	Returns: 
-		list of np.arrays: each np.array corresponds to a frame, containing all wat resid identified in the pore slice at that frame
+		list of np.arrays: each np.array corresponds to a frame, 
+			containing all wat resid identified in the pore slice at that frame
 	'''
 	if '2b5f' in filename:
 		pdbtraj = glob.glob("*2b5f*stripped.pdb")[0]
@@ -77,7 +78,8 @@ def GetResTime(filename, frames_of_wat_arr, slicenum):
 		frames_of_wat_arr (list): list of np.arrays from GetFramesofWat()
 		slicenum (int): current slice number
 	Returns: 
-		list of np.arrays: each array corresponds to a water resid, containing the counts of continous frames it was found in the pore slice
+		list of np.arrays: each array corresponds to a water resid, 
+			containing the counts of continous frames it was found in the pore slice
 	'''
 	all_wat_count_frame_num = []
 	for wat in range(len(frames_of_wat_arr)):
