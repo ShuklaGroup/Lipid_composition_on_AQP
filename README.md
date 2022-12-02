@@ -1,4 +1,4 @@
-# Functional regulation of AQP by lipid bilayer composition
+# MD Data Analysis
 
 Scripts for processing and analyzing AMBER .xtc trajectory files
 
