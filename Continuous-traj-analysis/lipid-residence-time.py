@@ -14,7 +14,7 @@ def GetLipResTime(filename):
         pbd files of the protein in the output directory "pylipid-cont" with the residence time
             as b-factor values
     '''
-    trajfile_list = [filename] #sorted(glob.glob("*2b5f*state-4_wat.xtc"))
+    trajfile_list = [filename]
     if "2b5f" in filename:
         topfile_list = [glob.glob("*2b5f*_wat.gro")[0]]
     if "1z98" in filename:
