@@ -55,8 +55,7 @@ if __name__ == "__main__":
 	#Set up parameters for optimization
 	lag = np.array([4,5])
 	cols = np.array([15,20,25,30])
-	cols_full = np.append(cols,num_features)
-
+	
 	for i in range(len(cols)):
 		localtime = time.asctime(time.localtime(time.time()))
 		print("Start oASIS round %i"%i, localtime)
