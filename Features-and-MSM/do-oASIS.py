@@ -11,14 +11,20 @@ from pyemma.coordinates import tica
 
 #Function that performs oASIS, returns column index
 def run_oasis(input_feature_data = feat_all, lag = 4,
-				max_columns = 50, num_features = num_features,
+		max_columns = 50, num_features = num_features,
               	spectraldir = "."):
-
+	'''
+	Args: input_feature_data: numpy array of all feature data
+		lag: (int) tica lag time
+		max_columns: (int) number of desired final features
+		num_features: (int) number of total features in input_feature_data
+	Returns: col_ind (array of int): column indices of selected features
+	'''
 	t_obj = pyemma.coordinates.tica_nystroem(data = input_feature_data,
-											lag = lag,
-											max_columns = max_columns,
-											initial_columns = np.random.choice(num_features,1,replace=False))
-	
+						lag = lag,
+						max_columns = max_columns,
+						initial_columns = np.random.choice(num_features,1,replace=False))
+
 	t_file = open("%s/nystroem-tica-obj-%d.pkl"%(spectraldir, max_columns),'wb')
 	pickle.dump(t_obj, t_file)
 	t_file.close()
@@ -55,9 +61,9 @@ if __name__ == "__main__":
 		localtime = time.asctime(time.localtime(time.time()))
 		print("Start oASIS round %i"%i, localtime)
 		col_ind = run_oasis(feat_all,
-							#lag = lagtime,#
-							max_columns = cols[i],
-							num_features = num_features)
+					#lag = lagtime,#
+					max_columns = cols[i],
+					num_features = num_features)
 		localtime = time.asctime(time.localtime(time.time()))
 		print("Done oASIS round %i"%i, localtime)
 
