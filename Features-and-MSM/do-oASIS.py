@@ -10,9 +10,8 @@ import time
 from pyemma.coordinates import tica
 
 #Function that performs oASIS, returns column index
-def run_oasis(input_feature_data = feat_all, lag = 4,
-		max_columns = 50, num_features = num_features,
-              	spectraldir = "."):
+def run_oasis(input_feature_data, num_features,
+	      lag = 4, max_columns = 50, spectraldir = "."):
 	'''
 	Args: input_feature_data: numpy array of all feature data
 		lag: (int) tica lag time
@@ -53,8 +52,15 @@ if __name__ == "__main__":
 	num_features = len(feat_all[0][0])
 
 	#Set up parameters for optimization
-	lag = np.array([4,5])
-	cols = np.array([15,20,25,30])
+	#lag = np.array([4,5])
+	cols = np.arange(10,105,5)
+	cols_full = np.append(cols,num_features)
+	vamp_scores = {}
+
+	os.makedirs('./oASIS-out/',exist_ok=True)
+	outdir = "./oASIS-out/"
+	vampfile = open('oASIS-vamp.txt','w')
+	vampfile.close()
 	
 	for i in range(len(cols)):
 		localtime = time.asctime(time.localtime(time.time()))
@@ -84,3 +90,14 @@ if __name__ == "__main__":
 		oasis_res_file = open("oasis-res-pairs-%i-feature.pkl"%(cols[i]), "wb")
 		pickle.dump(oasis_res_pair, oasis_res_file)
 		oasis_res_file.close()
+		
+		#VAMP-score optimization
+		cluster_obj = pyemma.coordinates.cluster_mini_batch_kmeans(tica_obj, k = 500, max_iter = 200, stride = 5)
+		cluster_trajs = cluster_obj.dtrajs
+		msm = pyemma.msm.estimate_markov_model(cluster_trajs, lag = 200)
+		vamp_avg = np.mean(msm.score_cv(cluster_trajs))
+		vamp_scores[cols[i]] = vamp_avg
+		
+		vampfile = open('oASIS-vamp.txt','a')
+		vampfile.write(str(cols[i]) + ': ' + str(vamp_avg) + '\n')
+		vampfile.close()
