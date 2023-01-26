@@ -54,6 +54,8 @@ if __name__ == "__main__":
 	#Set up parameters for optimization
 	#lag = np.array([4,5])
 	cols = np.arange(10,105,5)
+	#vamp_scores = {}
+
 
 	os.makedirs('./oASIS-out/',exist_ok=True)
 	outdir = "./oASIS-out/"
@@ -94,7 +96,7 @@ if __name__ == "__main__":
 		cluster_trajs = cluster_obj.dtrajs
 		msm = pyemma.msm.estimate_markov_model(cluster_trajs, lag = 200)
 		vamp_avg = np.mean(msm.score_cv(cluster_trajs))
-		vamp_scores[cols[i]] = vamp_avg
+		#vamp_scores[cols[i]] = vamp_avg
 		
 		vampfile = open('oASIS-vamp.txt','a')
 		vampfile.write(str(cols[i]) + ': ' + str(vamp_avg) + '\n')
