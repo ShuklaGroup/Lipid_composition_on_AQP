@@ -54,8 +54,6 @@ if __name__ == "__main__":
 	#Set up parameters for optimization
 	#lag = np.array([4,5])
 	cols = np.arange(10,105,5)
-	cols_full = np.append(cols,num_features)
-	vamp_scores = {}
 
 	os.makedirs('./oASIS-out/',exist_ok=True)
 	outdir = "./oASIS-out/"
