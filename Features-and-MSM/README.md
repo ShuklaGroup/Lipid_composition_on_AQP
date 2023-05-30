@@ -10,16 +10,11 @@ Scripts for feature selections (computing residue-residue distances, RRCS calcul
   - To determine hyperparameters, [*MSM-grid-search.py*](MSM-grid-search.py) is used to perform a grid search. Outputs are .pkl tICA and clustering objects, an implied timescale plot from the resulting hyperparameter sets' MSM, and a dict containing VAMP-2 scores. Five parameter sets with the highest VAMP-2 scores are examined. MSM lagtime is selected based on the implied timescale plot
   - With built MSMs, validations are done with [*MSM-bootstrap.py*](MSM-bootstrap.py) to estimate relative errors through bootstrapping, as well as [*MSM-reweighting-analysis.py*](MSM-reweighting-analysis.py) to evaluate the stationary distribution from the MSM and its deviation from the original distribution
 
-- Final MSM-related objects are included in...
+- Final MSM-related objects are included in [Box](https://uofi.box.com/s/uc33gid1jhyuc0oru8tr30to3x9kyj8z) with the following tree
 
 ```
 .
 └── SoPIP2-lipid-GitHub/
-    ├── 01-starting-coordinates-and-params/
-    │   ├── open-structure/
-    │   │   ├── *.rst/ncrst
-    │   │   └── *.parm7/prmtop
-    │   └── closed-structure
     └── 02-features-and-MSM/
         ├── features-per-system
         └── MSM-related-objs/
