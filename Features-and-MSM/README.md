@@ -13,6 +13,25 @@ Scripts for feature selections (computing residue-residue distances, RRCS calcul
 - Final MSM-related objects are included in...
 
 ```
-a 
-  b
-    c
+.
+└── SoPIP2-lipid-GitHub/
+    ├── 01-starting-coordinates-and-params/
+    │   ├── open-structure/
+    │   │   ├── *.rst/ncrst
+    │   │   └── *.parm7/prmtop
+    │   └── closed-structure
+    └── 02-features-and-MSM/
+        ├── features-per-system
+        └── MSM-related-objs/
+            ├── POPC/
+            │   ├── *features.pkl: indices of protein residue pairs
+            │   ├── *tica_obj.pkl: PyEMMA tICA object
+            │   ├── *tica_trajs.pkl: PyEMMA tICs for each traj and frame
+            │   ├── *cluster_obj.pkl: PyEMMA k-means clustering object
+            │   ├── *msm_obj.pkl: PyEMMA MSM object
+            │   ├── *ITS-error.pkl: PyEMMA implied timescale object
+            │   ├── *weights.pkl: PyEMMA stationary distribution of MSM
+            │   └── *probabilities.npy: msm and raw probability of each cluster
+            ├── POPE
+            ├── POPG
+            └── ...
