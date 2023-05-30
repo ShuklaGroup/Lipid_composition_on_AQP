@@ -15,7 +15,7 @@ Scripts for feature selections (computing residue-residue distances, RRCS calcul
 ```
 .
 └── SoPIP2-lipid-GitHub/
-    └── 02-features-and-MSM/
+    └── 01-features-and-MSM/
         ├── features-per-system
         └── MSM-related-objs/
             ├── POPC/
