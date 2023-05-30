@@ -8,6 +8,7 @@ import glob
 # sns.set_style("white")
 from scipy import stats
 
+#get distances that were compared to the open crystal structure
 feat_all_o = []
 for file in sorted(glob.glob('*MD*-OPEN-ABS-SUM-RRCS.pkl')):
 
@@ -17,6 +18,8 @@ for file in sorted(glob.glob('*MD*-OPEN-ABS-SUM-RRCS.pkl')):
 	feat_all_o.append(feat_file_o)
 
 feat_all_o = np.array(feat_all_o)
+
+#get distances that were compared to the closed crystal structure
 feat_all_c = []
 
 for file in sorted(glob.glob('*MD*-CLOSED-ABS-SUM-RRCS.pkl')):
@@ -31,6 +34,7 @@ feat_all_c = np.array(feat_all_c)
 open_rrcs = np.sum(feat_all_o,axis=0)
 closed_rrcs = np.sum(feat_all_c,axis=0)
 
+#reduce size of values
 open_rrcs_log = np.log(open_rrcs/10**6)
 closed_rrcs_log = np.log(closed_rrcs/10**6)
 
