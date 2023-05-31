@@ -1,4 +1,4 @@
-Scripts for the time-dependent analysis of continuous trajectories occupying the minima of the energy landscape, with water count for each 100-ns macrostate trajectory, water residence time per lateral pore slice, and lipid order parameter. Python 3.7.12 environment used is provided in \*.yml. Dependencies include MDAnalysis 2.1.0 and LiPyphilic 0.10.0.
+Scripts for the time-dependent analysis of continuous trajectories occupying the minima of the energy landscape, with water count for each 100-ns macrostate trajectory, water residence time per lateral pore slice, and lipid order parameter. Python 3.7.12 environment used is provided in [watlip-env.yml](watlip-env.yml). Dependencies include MDAnalysis 2.1.0 and LiPyphilic 0.10.0.
 
 - [*count-water.py*](count-water.py) takes an argument of the \*.xtc file in the directory, save the import and export water information for that trajectory (Figure 3 of manuscript)
  
