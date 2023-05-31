@@ -74,11 +74,11 @@ All parameter files and trajectories are organized by protein-structure/lipid an
         │   │   ├── *transport*: 3d array recording whether a water was transported at each frame
         │   │   └── *wat-in-pore*: number of water occupying the pore at each frame
         │   ├── POPC-wat-restime.tar.bz2/
-        │   │   ├── *ALL-WAT-COUNT*
-        │   │   ├── *ALL-WAT*
-        │   │   ├── *AVG-RES-TIME*
-        │   │   ├── *STD-RES-TIME*
-        │   │   └── *FRAMES-PER-WAT*
+        │   │   ├── *AVG-RES-TIME*: average time water continuously spends in slice, per water
+        │   │   ├── *STD-RES-TIME*: standard deviation of average residence time
+        │   │   └── *FRAMES-PER-WAT*: per water, record frames during which water occupy slice
+        │   │   ├── *ALL-WAT-COUNT*: number of water continuously in slice, per water
+        │   │   ├── *ALL-WAT*: record all water in slice per frame
         │   └── ... (other systems)
         └── lipid-order/
             ├── POPC-lipid-ord.tar.bz2/
