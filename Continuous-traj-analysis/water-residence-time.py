@@ -23,7 +23,7 @@ def GetWatsInFrame(filename, slice, slicenum):
 		pdbtraj = glob.glob("*1z98*stripped.pdb")[0]
 	trajectorytraj = filename
 	universetraj = MDAnalysis.Universe(pdbtraj, trajectorytraj)
-	wat = universetraj.select_atoms("resname WAT and name O and cyzone 8 4 -4 %s" %slice, updating=True)
+	wat = universetraj.select_atoms("resname WAT and name O and cyzone 8 2 -2 %s" %slice, updating=True)
 	allwat_allframes = []
 	allwat_allframes.append(wat.resids)
 	for i in range(len(universetraj.trajectory)-1):
