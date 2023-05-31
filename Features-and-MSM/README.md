@@ -1,4 +1,4 @@
-Scripts for feature selections (computing residue-residue distances, RRCS calculations, oASIS calculations), Markov State Models building from these features (grid searching, implied timescale plots), and validation of built MSM (reweighting plots and bootstrapping)
+Scripts for feature selections (computing residue-residue distances, RRCS calculations, oASIS calculations), Markov State Models building from these features (grid searching, implied timescale plots), and validation of built MSM (reweighting plots and bootstrapping). Dependencies include PyEMMMA 2.5.6. with Python 3.6. Conda environment used is included within [msm-env.yml](msm-env.yml)
 
 - To select features:
   - [*compute-distances.py*](compute-distances.py) is used to obtain residue-residue distances between specified pairs of residues or all residues.
