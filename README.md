@@ -37,17 +37,17 @@ All parameter files and trajectories are organized by protein-structure/lipid an
     │       │   └── *probabilities.npy: msm and raw probability of each cluster
     │       ├── POPE
     │       ├── POPG
-    │       └── ... (other systems)
+    │       └── ...
     ├── 02-discrete-frames-and-analysis/
     │   ├── minima-box (*.csv files)
     │   ├── trajectories (*.xtc files with water stripped along with *gro parameters)/
     │   │   ├── POPC-frames-stripped-wat.tar.bz2
-    │   │   └── ... (other systems)
+    │   │   └── ...
     │   ├── dihedral/
     │   │   ├── POPC-dihedral.tar.bz2 (all *npy containing dihedral data of POPC system)
     │   │   ├── POPE-dihedral.tar.bz2
     │   │   ├── POPG-dihedral.tar.bz2
-    │   │   └── ... (other systems)
+    │   │   └── ...
     │   └── mismatch/
     │       ├── prot-bulk-mismatch.tar.bz2 (all *pkl containing prot-bulk data)
     │       └── shell-bulk-mismatch.tar.bz2 (all *pkl containing shell-bulk data)
@@ -59,14 +59,14 @@ All parameter files and trajectories are organized by protein-structure/lipid an
         │   │   └── *pdb of coordinate files for analyses
         │   ├── POPE-traj-stripped-lipid.tar.bz2
         │   ├── POPG-traj-stripped-lipid.tar.bz2
-        │   └── ... (other systems)
+        │   └── ...
         ├── trajectories-stripped-water/
         │   ├── POPC-traj-stripped-water.tar.bz2/
         │   │   ├── *wat.xtc of 3 trajs (waters stripped) per macrostate
         │   │   └── *pdb of coordinate files for analyses
         │   ├── POPE-traj-stripped-water.tar.bz2
         │   ├── POPG-traj-stripped-water.tar.bz2
-        │   └── ... (other systems)
+        │   └── ...
         ├── water/
         │   ├── POPC-wat-transport.tar.bz2/
         │   │   ├── *passagetime*: time it takes for each water to transport
@@ -76,10 +76,11 @@ All parameter files and trajectories are organized by protein-structure/lipid an
         │   ├── POPC-wat-restime.tar.bz2/
         │   │   ├── *AVG-RES-TIME*: average time water continuously spends in slice, per water
         │   │   ├── *STD-RES-TIME*: standard deviation of average residence time
-        │   │   └── *FRAMES-PER-WAT*: per water, record frames during which water occupy slice
+        │   │   ├── *FRAMES-PER-WAT*: per water, record frames during which water occupy slice
+        │   │   ├── *WAT-PER-FRAME*: per frame, record waters in slice
         │   │   ├── *ALL-WAT-COUNT*: number of water continuously in slice, per water
-        │   │   ├── *ALL-WAT*: record all water in slice per frame
-        │   └── ... (other systems)
+        │   │   └── *ALL-WAT*: record all water that has been in slice
+        │   └── ...
         └── lipid-order/
             ├── POPC-lipid-ord.tar.bz2/
             │   ├── *protein-x.pkl: protein x positions across traj
@@ -90,4 +91,4 @@ All parameter files and trajectories are organized by protein-structure/lipid an
             │   ├── *scc_sn2.pkl: order param of each lipid's tail sn2
             │   ├── *avg_scc.pkl: average order param of each lipid
             │   └── *std_scc.pkl: standard deviation of order param
-            └── ... (other systems)
+            └── ...
