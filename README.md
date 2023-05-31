@@ -6,10 +6,10 @@ Scripts for processing and analyzing AMBER .xtc trajectory files
 Contains scripts to perform distance feature selection from trajectory information, then use the final feature set to construct and validate Markov State Models.
 
 ## Discrete-traj-analysis
-Contains scripts to select 1000 frames from minima of each macrostate in the energy landscape and scripts to perform analyses on them (HOLE radius, pore plug diheral, hydrophobic mismatch).
+Contains scripts to select 1000 frames from minima of each macrostate in the energy landscape and scripts to perform analyses on them (pore plug diheral, hydrophobic mismatch).
 
 ## Continuous-traj-analysis
-Contains scripts for time-dependent analyses, such as water count, water residence time, and lipid order parameter on a 10000 frame (100 ns) continous trajectory in a energy landscape minima.
+Contains scripts for time-dependent analyses, such as water count, water residence time, and lipid order parameter on a 10000 frame (100 ns) continous trajectory in a energy landscape minima. Also contains a script for HOLE analysis.
 
 # Data Availability
 
