@@ -17,6 +17,8 @@ Scripts for feature selections (computing residue-residue distances, RRCS calcul
 └── SoPIP2-lipid-GitHub/
     └── 01-features-and-MSM/
         ├── features-per-system
+        │   ├── POPC-features.tar.bz2: calculated features for all frames and all trajectories
+        │   └── ... (other bilayer systems have the same files)
         └── MSM-related-objs/
             ├── POPC/
             │   ├── *features.pkl: indices of protein residue pairs
