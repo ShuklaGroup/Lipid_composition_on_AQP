@@ -24,7 +24,9 @@ All parameter files and trajectories are organized by protein-structure/lipid an
     │   │   └── *.parm7/prmtop
     │   └── closed-structure
     ├── 01-features-and-MSM/
-    │   ├── features-per-system
+    │   ├── features-per-system/
+    │   │   ├── POPC-features.tar.bz2: calculated features for all frames and all trajectories
+    │   │   └── ... (other bilayer systems have the same files)
     │   └── MSM-related-objs/
     │       ├── POPC/
     │       │   ├── *features.pkl: indices of protein residue pairs
@@ -35,39 +37,31 @@ All parameter files and trajectories are organized by protein-structure/lipid an
     │       │   ├── *ITS-error.pkl: PyEMMA implied timescale object
     │       │   ├── *weights.pkl: PyEMMA stationary distribution of MSM
     │       │   └── *probabilities.npy: msm and raw probability of each cluster
-    │       ├── POPE
-    │       ├── POPG
     │       └── ...
     ├── 02-discrete-frames-and-analysis/
     │   ├── minima-box (*.csv files)
-    │   ├── trajectories (*.xtc files with water stripped along with *gro parameters)/
+    │   ├── trajectories.tar.bz2 (*.xtc files with water stripped along with *gro parameters)/
     │   │   ├── POPC-frames-stripped-wat.tar.bz2
     │   │   └── ...
-    │   ├── dihedral/
+    │   ├── dihedral.tar.bz2/
     │   │   ├── POPC-dihedral.tar.bz2 (all *npy containing dihedral data of POPC system)
-    │   │   ├── POPE-dihedral.tar.bz2
-    │   │   ├── POPG-dihedral.tar.bz2
     │   │   └── ...
-    │   └── mismatch/
+    │   └── mismatch.tar.bz2/
     │       ├── prot-bulk-mismatch.tar.bz2 (all *pkl containing prot-bulk data)
     │       └── shell-bulk-mismatch.tar.bz2 (all *pkl containing shell-bulk data)
     └── 03-continuous-trajs-and-analysis/
         ├── cont-traj-data.csv (all cont trajs information and calculated results)
-        ├── trajectories-stripped-lipid/
+        ├── trajectories-stripped-lipid.tar.bz2/
         │   ├── POPC-traj-stripped-lipid.tar.bz2/
         │   │   ├── *stripped*xtc of 3 trajs (lipids stripped) per macrostate
         │   │   └── *pdb of coordinate files for analyses
-        │   ├── POPE-traj-stripped-lipid.tar.bz2
-        │   ├── POPG-traj-stripped-lipid.tar.bz2
         │   └── ...
-        ├── trajectories-stripped-water/
+        ├── trajectories-stripped-water.tar.bz2/
         │   ├── POPC-traj-stripped-water.tar.bz2/
         │   │   ├── *wat.xtc of 3 trajs (waters stripped) per macrostate
         │   │   └── *pdb of coordinate files for analyses
-        │   ├── POPE-traj-stripped-water.tar.bz2
-        │   ├── POPG-traj-stripped-water.tar.bz2
         │   └── ...
-        ├── water/
+        ├── water.tar.bz2/
         │   ├── POPC-wat-transport.tar.bz2/
         │   │   ├── *passagetime*: time it takes for each water to transport
         │   │   ├── *transportedres*: residue ID of the waters that was transported
@@ -81,7 +75,7 @@ All parameter files and trajectories are organized by protein-structure/lipid an
         │   │   ├── *ALL-WAT-COUNT*: number of water continuously in slice, per water
         │   │   └── *ALL-WAT*: record all water that has been in slice
         │   └── ...
-        └── lipid-order/
+        └── lipid-order.tar.bz2/
             ├── POPC-lipid-ord.tar.bz2/
             │   ├── *protein-x.pkl: protein x positions across traj
             │   ├── *protein-y.pkl: protein y positions across traj
