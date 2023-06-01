@@ -26,7 +26,7 @@ All parameter files and trajectories are organized by protein-structure/lipid an
     ├── 01-features-and-MSM/
     │   ├── features-per-system/
     │   │   ├── POPC-features.tar.bz2: calculated features for all frames and all trajectories
-    │   │   └── ... (other bilayer systems have the same files)
+    │   │   └── ... (other bilayer systems files are named similarly: $lipid-*)
     │   └── MSM-related-objs/
     │       ├── POPC/
     │       │   ├── *features.pkl: indices of protein residue pairs
