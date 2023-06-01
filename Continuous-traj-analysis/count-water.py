@@ -32,7 +32,10 @@ pore = "resid 47 or resid 206 or resid 211 or "\
 #define normalized channel axis
 def channelaxis(dirv,cv):
     '''
-    Define normalized channel axis with 
+    Args: 
+    	dirv, numpy array defining direction of channel (intra - extracellular central point)
+    	cv, principal z channel axis
+    Returns: normalized channel axis
     '''
     r = np.dot(dirv,cv)
     if r<0:
