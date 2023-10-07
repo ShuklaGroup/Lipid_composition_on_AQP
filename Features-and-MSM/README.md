@@ -9,8 +9,9 @@ Scripts for feature selections (computing residue-residue distances, RRCS calcul
 - MSM scripts are used for the Markov State Model building workflow:
   - To determine hyperparameters, [*MSM-grid-search.py*](MSM-grid-search.py) is used to perform a grid search. Outputs are .pkl tICA and clustering objects, an implied timescale plot from the resulting hyperparameter sets' MSM, and a dict containing VAMP-2 scores. Five parameter sets with the highest VAMP-2 scores are examined. MSM lagtime is selected based on the implied timescale plot
   - With built MSMs, validations are done with [*MSM-bootstrap.py*](MSM-bootstrap.py) to estimate relative errors through bootstrapping, as well as [*MSM-reweighting-analysis.py*](MSM-reweighting-analysis.py) to evaluate the stationary distribution from the MSM and its deviation from the original distribution
+  - The MFPT (mean first passage time) between the most open-like and closed-like clusters is attained for each system using [*get-MFPT.py*](get-MFPT.py).
 
-- Final MSM-related objects are included in [Box](https://uofi.box.com/s/uc33gid1jhyuc0oru8tr30to3x9kyj8z) with the following tree
+- Final MSM-related objects are used to plot figures in the manuscript with plotting scripts included in [Plotting](Plotting). MSM-objects are also uploaded on [Box](https://uofi.box.com/s/uc33gid1jhyuc0oru8tr30to3x9kyj8z) with the following tree
 
 ```
 .
