@@ -1,6 +1,6 @@
 # MD Data Analysis
 
-Scripts for processing and analyzing AMBER .xtc trajectory files
+Scripts for processing and analyzing AMBER .xtc trajectory files in the [Functional Regulation of Aquaporin Dynamics by Lipid Bilayer Composition](https://doi.org/10.1101/2023.07.20.549977) manuscript.
 
 ## Features-and-MSM
 Contains scripts to perform distance feature selection from trajectory information, then use the final feature set to construct and validate Markov State Models.
